@@ -1,0 +1,34 @@
+{
+  "name": "iojs-dockerapp",
+  "version": "1.0.0",
+  "description": "iojs docker app to illustrate how this works.",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wolfeidau/iojs-dockerapp"
+  },
+  "keywords": [
+    "iojs",
+    "docker"
+  ],
+  "author": "Mark Wolfe <mark@wolfe.id.au>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wolfeidau/iojs-dockerapp/issues"
+  },
+  "homepage": "https://github.com/wolfeidau/iojs-dockerapp",
+  "devDependencies": {
+    "chai": "^2.2.0",
+    "mocha": "^2.2.4"
+  },
+  "dependencies": {
+    "koa": "^0.19.1",
+    "koa-mount": "^1.3.0",
+    "koa-router": "^4.3.2"
+  }
+}
