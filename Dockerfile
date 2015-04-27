@@ -3,21 +3,17 @@ MAINTAINER Mark Wolfe <mark@wolfe.id.au>
 
 RUN groupadd -r node && useradd -d /var/lib/node -g node node
 
-RUN touch /etc/inittab
 RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get install -y -q runit && \
+	DEBIAN_FRONTEND=noninteractive apt-get install -y -q make gcc && \
 	apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+	rm -rf /var/lib/apt/lists/*
 
-RUN mkdir -p /etc/service/iojs-dockerapp
-COPY ./etc/run /etc/service/iojs-dockerapp/run
-RUN chmod 755 /etc/service/iojs-dockerapp/run
-COPY ./etc/runit_bootstrap /usr/sbin/runit_bootstrap
-RUN chmod 755 /usr/sbin/runit_bootstrap
+RUN mkdir /tmp/mon && cd /tmp/mon && curl -L# https://github.com/visionmedia/mon/archive/master.tar.gz | tar zx --strip 1 && make install && rm -rf /tmp/mon
 
 COPY . /app
 WORKDIR /app
 RUN npm install
 
+USER node
 EXPOSE 3000
-ENTRYPOINT ["/usr/sbin/runit_bootstrap"]
+ENTRYPOINT ["mon", "node index.js"]

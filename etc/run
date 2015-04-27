@@ -1,6 +1,0 @@
-#!/bin/bash
-cd /app
-exec 2>&1
-source /etc/envvars
-ulimit -n 32768
-exec chpst -u node:node node index.js
