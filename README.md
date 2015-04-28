@@ -1,6 +1,6 @@
 # iojs-dockerapp
 
-This project is a simple base for building [iojs](https://iojs.org) (nodejs fork) based projects. It uses [runit](http://smarden.org/runit/), an old school and super reliable process monitor which just works.
+This project is a simple base for building [iojs](https://iojs.org) (nodejs fork) based projects. It uses [mon](https://github.com/tj/mon) a simple c program written by tj to monitor and restart node processes.
 
 # overview
 
